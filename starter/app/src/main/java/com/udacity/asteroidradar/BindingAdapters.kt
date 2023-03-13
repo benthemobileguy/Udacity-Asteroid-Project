@@ -66,7 +66,7 @@ fun bindTextViewToDisplayVelocity(textView: TextView, number: Double) {
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {
         val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
-        Picasso.with(imgView.context)
+        Picasso.get()
             .load(imgUri)
             .placeholder(R.drawable.loading)
             .error(R.drawable.error)
@@ -93,5 +93,6 @@ fun bindStatus(statusProgressBar: ProgressBar, status: AsteroidApiStatus?) {
         AsteroidApiStatus.DONE -> {
             statusProgressBar.visibility = View.GONE
         }
+        else -> {}
     }
 }
