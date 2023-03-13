@@ -60,7 +60,29 @@ class AsteroidRepository(private val database: AsteroidDatabase) {
             }
         }
     }
+    suspend fun clearPreviousAsteroids() {
+        withContext(Dispatchers.IO) {
+            try {
+                Timber.d("Clear old asteroids...")
+                val today = getFormattedDate()
+                database.asteroidDao.clearOldAsteroids(today)
+            } catch (e: Exception) {
+                Timber.e("Got exception when clearing old asteroids: $e")
+            }
+        }
+    }
 
+    suspend fun clearPreviousPicOfDay() {
+        withContext(Dispatchers.IO) {
+            try {
+                Timber.d("Clear previous picture of day...")
+                val today = getFormattedDate()
+                database.asteroidDao.clearOldPictureOfDay(today)
+            } catch (e: Exception) {
+                Timber.e("Got error when clearing old picture of day: $e")
+            }
+        }
+    }
     suspend fun refreshAsteroids() {
         withContext(Dispatchers.IO) {
             try {

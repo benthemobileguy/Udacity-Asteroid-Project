@@ -29,6 +29,7 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
+                android:contentDescription="Image of @{viewModel.pictureOfDay.title}"
                 app:imageUrl="@{viewModel.pictureOfDay.url}"
                 tools:src="@tools:sample/backgrounds/scenic"/>
 
