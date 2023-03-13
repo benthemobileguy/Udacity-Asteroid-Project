@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="asteroid"
+            type="com.udacity.asteroidradar.domain.Asteroid" />
+        <variable
+            name="clickListener"
+            type="com.udacity.asteroidradar.adapter.AsteroidListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:onClick="@{() -> clickListener.onClick(asteroid)}">
+
+        <TextView
+            android:id="@+id/codename_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/globalMargin"
+            android:layout_marginTop="@dimen/globalMargin"
+            android:layout_marginBottom="16dp"
+            android:text="@{asteroid.codename}"
+            android:contentDescription="@{asteroid.codename}"
+            android:textColor="@color/default_text_color"
+            app:layout_constraintBottom_toTopOf="@+id/date_text_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="68347" />
+
+        <TextView
+            android:id="@+id/date_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/globalMargin"
+            android:layout_marginTop="@dimen/globalMargin"
+            android:layout_marginBottom="@dimen/globalMargin"
+            android:text="@{asteroid.closeApproachDate}"
+            android:contentDescription="@{asteroid.closeApproachDate}"
+            android:textColor="@color/default_text_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/codename_text_view"
+            tools:text="2023-02-08" />
+
+        <ImageView
+            android:id="@+id/status_image_view"
+            statusIcon="@{asteroid.potentiallyHazardous}"
+            statusIconContentDescription="@{asteroid.potentiallyHazardous}"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="@dimen/globalMargin"
+            android:layout_marginEnd="@dimen/globalMargin"
+            android:layout_marginBottom="@dimen/globalMargin"
+            android:contentDescription="@string/asteroid_status"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/ic_status_normal" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
