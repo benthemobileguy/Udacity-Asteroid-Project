@@ -6,7 +6,7 @@ distributionUrl = https\://services.gradle.org/distributions/gradle-6.1.1-all.zi
 ```
 # The Asteroid Project
 
-|Home|Details Screen| Details Screen|AsteroidDetails|
+|Home|Details|Details|Info|
 |--|---|---|-----------------------------------|---|
 |![Home](screenshots/screen_1.png)|![Details](screenshots/screen_2.png)|![Details](screenshots/screen_3.png)| ![Info](screenshots/screen_4.png) |
 
