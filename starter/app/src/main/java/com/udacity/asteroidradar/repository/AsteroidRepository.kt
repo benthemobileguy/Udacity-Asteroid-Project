@@ -99,6 +99,22 @@ class AsteroidRepository(private val database: AsteroidDatabase) {
             }
         }
     }
+    suspend fun getNext7days() {
+        withContext(Dispatchers.IO) {
+            try {
+                val day = getFormattedDate(days = 7)
+                Timber.d("Request next 7 days asteroids w/ startDate $day")
+                val stringResponse = NasaApi.retrofitScalarService.getAsteroids(
+                    apiKey = Constants.API_KEY, startDate = day , endDate = null)
+                Timber.d("The results from start $day are $stringResponse")
+                val networkAsteroids = parseAsteroidsJsonResult(JSONObject(stringResponse))
+                database.asteroidDao.insertAll(*networkAsteroids.asDatabaseModel())
+            } catch (e: Exception) {
+
+                Timber.e("Error while refreshing asteroids: $e")
+            }
+        }
+    }
 }
 
 
