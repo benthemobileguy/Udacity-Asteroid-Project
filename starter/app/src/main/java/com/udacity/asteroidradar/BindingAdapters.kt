@@ -33,13 +33,25 @@ fun bindAsteroidStatusImageContentDescription(imageView: ImageView, isHazardous:
 
 
 @BindingAdapter("asteroidStatusImage")
-fun bindImageStatusDetails(imageView: ImageView, isHazardous: Boolean) {
+fun bindDetailsStatusImage(imageView: ImageView, isHazardous: Boolean) {
     if (isHazardous) {
         imageView.setImageResource(R.drawable.asteroid_hazardous)
     } else {
         imageView.setImageResource(R.drawable.asteroid_safe)
     }
 }
+
+
+@BindingAdapter("asteroidStatusImageContentDescription")
+fun bindDetailsStatusImageContentDescription(imageView: ImageView, isHazardous: Boolean) {
+    val context = imageView.context
+    if (isHazardous) {
+        imageView.contentDescription = String.format(context.getString(R.string.hazardous_description))
+    } else {
+        imageView.contentDescription = String.format(context.getString(R.string.not_hazardous_description))
+    }
+}
+
 
 @BindingAdapter("astronomicalUnitText")
 fun bindTextViewToAstronomicalUnit(textView: TextView, number: Double) {
@@ -61,6 +73,7 @@ fun bindTextViewToDisplayVelocity(textView: TextView, number: Double) {
     textView.text = String.format(context.getString(R.string.km_s_unit_format), number)
     textView.contentDescription = String.format(context.getString(R.string.km_s_unit_format), number)
 }
+
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
