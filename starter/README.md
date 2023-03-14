@@ -8,7 +8,7 @@ distributionUrl = https\://services.gradle.org/distributions/gradle-6.1.1-all.zi
 
 |Home|Onboarding|Details Screen| Details Screen|AsteroidDetails|
 |--|---|---|-----------------------------------|---|
-|![Home](screenshots/screen_1.png)|![Details](screenshots/screen_2.png)|![Details](screenshots/screen_3.png)| ![Info](screenshots/screen_4.pngg) |
+|![Home](../screenshots/screen_1.png)|![Details](../screenshots/screen_2.png)|![Details](../screenshots/screen_3.png)| ![Info](../screenshots/screen_4.pngg) |
 
 
 1. Asteroid Radar is an app to view the asteroids detected by NASA that pass near Earth.
@@ -24,7 +24,7 @@ Open the starter project in Android Studio
 
 ## Review from the Reviewer (Udacity)
 
-![review1](screenshots/review1.png)|![review2](screenshots/review2.png)|
+![review1](../screenshots/review1.png)|![review2](../screenshots/review2.png)|
 
 ---
 
